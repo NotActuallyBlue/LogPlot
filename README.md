@@ -5,8 +5,6 @@ A fast desktop viewer for car data logs, made for tuned VW / Audi cars on Simos 
 
 Free to use. Made by Ghostwerks.
 
-> **Not available right now.** LogPlot 1.0 was pulled while more features are added and tested. The download will be back on the [Releases](../../releases) page.
-
 ## What it does
 
 * **Opens CSV logs** from Simos.app, PhantomLog and Simos Tools, and older CSV logs with a clock-time column. Big logs open in a second or
