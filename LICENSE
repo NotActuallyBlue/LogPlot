@@ -1,0 +1,16 @@
+LogPlot
+Copyright (c) 2026 Ghostwerks. All rights reserved.
+
+LogPlot is free to download and use, for your own logs and for anyone you help with theirs. You may not copy, modify, redistribute,
+sell or rent it, or reuse any part of it in other software, without written permission from Ghostwerks.
+
+Versions published up to 27 November 2026 were released under the MIT licence. That licence covers only those versions, as they were
+published; it does not cover anything released later.
+
+LogPlot includes third-party libraries under their own licences, listed in THIRD_PARTY_LICENSES.md with their texts in LICENSES/. Nothing
+in this licence limits what those licences allow you to do with those libraries (for example, replacing the Qt and PySide6 libraries in
+the AppImage with your own build, as the LGPL permits).
+
+LOGPLOT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL GHOSTWERKS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH LOGPLOT OR ITS USE.
