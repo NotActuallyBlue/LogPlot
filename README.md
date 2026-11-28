@@ -24,11 +24,14 @@ Free to use. Made by Ghostwerks.
   speed over time. It corrects for the road's slope when the log has a usable longitudinal acceleration channel. Open a second log with
   **Compare** and its best pull is drawn dashed on the same chart, to compare two tunes.
 * **Compare** any two logs on the time graphs: the second log is drawn faint behind the first, with an offset and "Align pulls" to line
-  up their first full-throttle pulls. The channel list shows both logs' values at the cursor.
+  up the strongest full-throttle pull of each, matched on engine speed so the two climb together. The channel list shows both logs' values at the cursor.
 * **Analyze:** every pull side by side, plus the whole log. For each pull: peak power, torque, boost and turbo speed (the peak of a
   half-second average, so one spiky sample doesn't set it, with the raw peak under it), highest rpm, intake air temperature and LPFP duty,
-  lowest timing, the worst knock and its cylinder, lambda furthest from target, and the lowest direct-injection pressure as a percentage
-  of its setpoint, and acceleration times (0–60, 40–80 and 60–100 mph, or 0–100, 60–120 and 100–200 km/h). The strongest pull is
+  lowest timing, the worst knock and its cylinder, lambda furthest from target, the lowest direct-injection pressure as a percentage
+  of its setpoint, the pressure ratio (PUT over ambient pressure: how hard the turbo works, comparable across weather), how far the
+  intake air rose above the outside air (intercooler health), and acceleration times (0–60, 40–80 and 60–100 mph, or 0–100, 60–120 and 100–200 km/h). Timing, lambda and fuel pressure leave out the
+  moment of a gear change (the gearbox cuts spark and fuel for it) and the sensor's recovery after a fuel cut, so a pull through
+  2nd, 3rd and 4th doesn't show a false spark drop or a false lean reading; the pull's header shows the gears it went through. The strongest pull is
   starred. With a compare log open, its strongest pull is shown beside yours. Click a cell to zoom to that pull. **Copy** (to paste
   into Discord or a forum), **Save CSV** and **Save image** share the table.
 * **Acceleration times** are timed from the car's speed with the pedal at 75 % or more for most of the run; "0" starts when the car
@@ -37,7 +40,8 @@ Free to use. Made by Ghostwerks.
   and are kept in LogPlot's settings folder; the log files are never changed.
 * **Math channels:** ƒ Math… in the Channels tab adds your own values from a formula, such as `AFR = [Lambda] * 14.7` or
   `Boost error = [PUT SP] - [PUT]`. Channel names go in square brackets; + − * / ** %, brackets and abs, sqrt, log, exp, min, max
-  are allowed. A formula is added to every log that has its channels.
+  are allowed. A formula is added to every log that has its channels. **Add presets** adds Pressure Ratio (`[PUT] / [Ambient Press]`)
+  and IAT Rise (`[IAT] - [Ambient Temp]`).
 * **Raw:** the samples as a table.
 
 ## What the pulls and flags look for
@@ -55,7 +59,7 @@ channel names are the ones Simos.app and PhantomLog use; if a log doesn't have a
 | **Boost under** | The turbo not making the pressure the ECU asked for | Actual pressure more than 15 kPa under target, pedal at 80 % or more, above 3000 rpm (after spool). Uses PUT and PUT SP when the log has them, else MAP and MAP SP |
 | **Fuel pressure** | The high- or low-pressure fuel pump falling behind | Pressure more than 10 % under its setpoint under load (pedal at 50 % or more), direct and port injection checked separately |
 | **Misfire** | The ECU counting a misfire | The misfire counter going up |
-| **Wheel slip** | The front tyres spinning | Front wheels more than 8 % faster than the rears, above 15 km/h |
+| **Wheel slip** | The front tyres spinning | Front wheels more than 8 % faster than the rears, above 15 km/h, with the pedal at 50 % or more (a slow turn is not slip) |
 | **Rich target** | The ECU asking for a very rich mixture, often to protect the engine from heat | Lambda target under 0.78 under load. Many tunes ask for about 0.75 at the top end on purpose, so check it against your tune |
 
 Gear shifts are found too (for the AI connector): every change in the gear channel, with the rpm before and after.
